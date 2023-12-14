@@ -1,4 +1,4 @@
-# kinderGuardians
+# [kinderGuardians](https://csmanel.github.io/kinderGuardians/)
 
 this app is built as a helper for the game Destiny 2.
 for those with no background, the game fuctions on multiple types of content that all require different gear or items. Often what is recommended is obscured by the sheer volume of things going on in the game, this guide hopes to simplify that.
