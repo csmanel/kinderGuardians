@@ -23,7 +23,7 @@ items will have brief descriptions as well as methods for obtaining the item.
 
 ## Wireframes
 
-![concept for app]("assets\Homepage.png")
+![concept for app](./assets/Homepage.png)
 
 - Content Type will display available content types a user can choose from, even if limited to one
 
