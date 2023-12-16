@@ -8,14 +8,14 @@ class Example {
     this.ele.children[0].innerText = 'slightly different working!';
   }
 }
-export default Example;
+// export default Example;
 
 const apiKey = '3fd152d590a94ab088993fcc9292e6f9';
 const manifestUrl = 'https://www.bungie.net/Platform/Destiny2/Manifest/';
 // const jsonFilePath = './d2.json';
 
-const weaponFetch = async function () {
-  let response = await fetch(manifestUrl, {
+export default async function weaponFetch(searchName) {
+  fetch(manifestUrl, {
     headers: {
       'X-API-Key': apiKey,
     },
@@ -23,17 +23,6 @@ const weaponFetch = async function () {
     .then((response) => response.json())
     .then((data) => {
       const manifest = data.Response;
-
-      // const manifestKeys = Object.keys(manifest);
-      // // console.log('Manifest Keys:', manifestKeys);
-
-      // const worldComponentKeys = Object.keys(
-      //   manifest.jsonWorldComponentContentPaths.en
-      // );
-      // console.log(
-      //   'jsonWorldComponentContentPaths.en Keys:',
-      //   worldComponentKeys
-      // );
       const inventoryUrl =
         manifest.jsonWorldComponentContentPaths.en
           .DestinyInventoryItemDefinition;
@@ -45,11 +34,23 @@ const weaponFetch = async function () {
       })
         .then((response) => response.json())
         .then((inventoryData) => {
-          const ignitionCodeItem = Object.values(inventoryData).filter(
-            (item) => item.displayProperties.name === 'Ignition Code'
+          const codeItem = Object.values(inventoryData).filter(
+            (item) => item.displayProperties.name === searchName
           );
-          if (ignitionCodeItem) {
-            console.log('Ignition Code item found!!!!!!', ignitionCodeItem);
+          if (searchName) {
+            const {
+              displayProperties,
+              flavorText,
+              itemTypeAndTierDisplayName,
+              itemTypeDisplayName,
+            } = codeItem[0];
+            console.log(
+              'Code item found!!!!!!',
+              displayProperties,
+              flavorText,
+              itemTypeAndTierDisplayName,
+              itemTypeDisplayName
+            );
           } else {
             console.log('Ignition Code item not found :(((((((( ');
           }
@@ -58,5 +59,13 @@ const weaponFetch = async function () {
           console.error('Error fetching inventory data:', error);
         });
     });
-};
-weaponFetch();
+}
+
+const witherhoardItem = await weaponFetch('Witherhoard');
+const breakneckItem = await weaponFetch('Breakneck');
+const osteoStrigaItem = await weaponFetch('Osteo Striga');
+const gnawingHungerItem = await weaponFetch('Gnawing Hunger');
+const forbearanceItem = await weaponFetch('Forbearance');
+const cataclysmicItem = await weaponFetch('Cataclysmic');
+const retrofitEscapadeItem = await weaponFetch('Retrofit Escapade');
+const apexPredatorItem = await weaponFetch('Apex Predator');
