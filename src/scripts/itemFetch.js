@@ -71,7 +71,7 @@ function displayItemProperties(
     flavorText,
   ];
 
-  const propImg = ['bungie.net' + displayProperties.icon];
+  const propImg = 'bungie.net' + displayProperties.icon;
   const icon = document.createElement('IMG');
   icon.src = propImg;
   ul.appendChild(icon);
