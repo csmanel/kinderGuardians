@@ -23,6 +23,7 @@
     "regenerator-runtime": "^0.14.0",
     "sass": "^1.69.5",
     "sass-loader": "^13.3.2",
+    "the-new-css-reset": "^1.11.2",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
   }
