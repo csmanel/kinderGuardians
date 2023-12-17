@@ -123,6 +123,16 @@ meter {
   color: red;
 }
 
+#item-container {
+  border: #222 0.2rem solid;
+  align-items: center;
+  column-gap: 10px;
+  display: flex;
+  max-width: 500px;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
 #main {
   color: purple;
 }

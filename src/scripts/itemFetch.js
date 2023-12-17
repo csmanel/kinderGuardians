@@ -71,6 +71,11 @@ function displayItemProperties(
     flavorText,
   ];
 
+  const propImg = ['bungie.net' + displayProperties.icon];
+  const icon = document.createElement('IMG');
+  icon.src = propImg;
+  ul.appendChild(icon);
+
   properties.forEach((prop) => {
     const li = document.createElement('li');
     li.textContent = prop;
@@ -82,7 +87,7 @@ function displayItemProperties(
     ul.appendChild(li);
   });
 
-  document.body.appendChild(ul);
+  document.getElementById('item-container').appendChild(ul);
 }
 const witherhoardItem = await itemFetchAndDisplay('Witherhoard');
 const breakneckItem = await itemFetchAndDisplay('Breakneck');
