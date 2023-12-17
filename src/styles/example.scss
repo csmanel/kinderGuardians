@@ -19,3 +19,11 @@
   overflow: hidden;
   flex-wrap: wrap;
 }
+
+#item-container img {
+  border: #222 0.2rem solid;
+}
+
+#item-container img:hover {
+  border: grey 0.2rem solid;
+}
