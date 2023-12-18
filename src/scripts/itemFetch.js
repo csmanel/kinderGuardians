@@ -1,23 +1,13 @@
-// import {
-//   apexImg,
-//   breakneckImg,
-//   cataclysmicImg,
-//   forbearanceImg,
-//   gnawingImg,
-//   osteoImg,
-//   retrofitImg,
-//   witherhoardImg,
-// } from '../../assets';
-
-// const apexImg = require('../../assets/apex.jpg');
-
-const apiKey = '3fd152d590a94ab088993fcc9292e6f9';
-const manifestUrl = 'https://www.bungie.net/Platform/Destiny2/Manifest/';
+const APIKEY = '3fd152d590a94ab088993fcc9292e6f9';
+const MANIFESTURL = 'https://www.bungie.net/Platform/Destiny2/Manifest/';
+const KINID = 1498876634;
+const SECID = 2465295065;
+const HEVID = 953998645;
 
 export default async function itemFetchAndDisplay(searchName) {
-  fetch(manifestUrl, {
+  fetch(MANIFESTURL, {
     headers: {
-      'X-API-Key': apiKey,
+      'X-API-Key': APIKEY,
     },
   })
     .then((response) => response.json())
@@ -42,6 +32,13 @@ export default async function itemFetchAndDisplay(searchName) {
           // inventoryData displays every possible item in the manifest db
 
           if (searchName) {
+            // checking for which version of the object has the collectible hash
+            let collectibleItem;
+            codeItem.forEach((el) => {
+              if ('collectibleHash' in el) {
+                collectibleItem = el;
+              }
+            });
             const {
               displayProperties,
               flavorText,
@@ -49,7 +46,8 @@ export default async function itemFetchAndDisplay(searchName) {
               itemTypeDisplayName,
               hash,
               screenshot,
-            } = codeItem[0];
+              equippingBlock,
+            } = collectibleItem;
             // console.log(inventoryData);
             // console.log(codeItem);
             // console.log(
@@ -65,7 +63,8 @@ export default async function itemFetchAndDisplay(searchName) {
               itemTypeAndTierDisplayName,
               itemTypeDisplayName,
               hash,
-              screenshot
+              screenshot,
+              equippingBlock
             );
           } else {
             console.log('item not found :(((((((( ');
@@ -83,24 +82,33 @@ function displayItemProperties(
   itemTypeAndTierDisplayName,
   itemTypeDisplayName,
   hash,
-  screenshot
+  screenshot,
+  equippingBlock
 ) {
   const properties = [
     displayProperties.name,
     itemTypeAndTierDisplayName,
     itemTypeDisplayName,
     flavorText,
-    hash,
-    screenshot,
   ];
-
-  const itemUl = document.createElement('ul');
-
   // icon creation
   const icon = document.createElement('IMG');
   const propImg = 'https://bungie.net' + displayProperties.icon;
   icon.src = propImg;
-  itemUl.appendChild(icon);
+  // const itemDiv = document.createElement('div');
+  // itemDiv.appendChild(icon);
+
+  if (equippingBlock.equipmentSlotTypeHash === KINID) {
+    const kineticDiv = document.querySelector('#kinetic');
+    kineticDiv.appendChild(document.createElement('div')).appendChild(icon);
+  } else if (equippingBlock.equipmentSlotTypeHash === SECID) {
+    const secondaryDiv = document.querySelector('#secondary');
+    secondaryDiv.appendChild(document.createElement('div')).appendChild(icon);
+  } else if (equippingBlock.equipmentSlotTypeHash === HEVID) {
+    const heavyDiv = document.querySelector('#heavy');
+    heavyDiv.appendChild(document.createElement('div')).appendChild(icon);
+  }
+  // iterate over props, if prop === h1 id, append icon to that h1
 
   // text creation
   function handleClick() {
@@ -109,6 +117,7 @@ function displayItemProperties(
     const textUl = document.createElement('ul');
 
     properties.forEach((prop) => {
+      // creating text li to attach to the text ul
       const li = document.createElement('li');
       li.textContent = prop;
       textUl.style.padding = '8px';
@@ -116,6 +125,8 @@ function displayItemProperties(
       textUl.style.marginBottom = '8px';
 
       textUl.appendChild(li);
+
+      //find prop that has an equippingblock id that matches h1 id and if so, append that itemul to the matching h1
     });
     const img = document.createElement('IMG');
     console.log(screenshot);
@@ -130,7 +141,7 @@ function displayItemProperties(
   // right panel attach
   document.getElementById('text-container');
   // left panel attach
-  document.getElementById('item-container').appendChild(itemUl);
+  document.getElementById('item-container');
 }
 
 const witherhoardItem = await itemFetchAndDisplay('Witherhoard');
