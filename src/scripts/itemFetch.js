@@ -1,6 +1,5 @@
 const apiKey = '3fd152d590a94ab088993fcc9292e6f9';
 const manifestUrl = 'https://www.bungie.net/Platform/Destiny2/Manifest/';
-// const jsonFilePath = './d2.json';
 
 export default async function itemFetchAndDisplay(searchName) {
   fetch(manifestUrl, {
@@ -62,7 +61,8 @@ function displayItemProperties(
   itemTypeAndTierDisplayName,
   itemTypeDisplayName
 ) {
-  const ul = document.createElement('ul');
+  const itemUl = document.createElement('ul');
+  const textUl = document.createElement('ul');
 
   const properties = [
     displayProperties.name,
@@ -74,21 +74,31 @@ function displayItemProperties(
   const icon = document.createElement('IMG');
   const propImg = 'https://bungie.net' + displayProperties.icon;
   icon.src = propImg;
-  ul.appendChild(icon);
+  itemUl.appendChild(icon);
 
-  properties.forEach((prop) => {
-    const li = document.createElement('li');
-    li.textContent = prop;
+  // i only want to do this IF an icon is clicked on
+  function handleClick() {
+    properties.forEach((prop) => {
+      const li = document.createElement('li');
+      li.textContent = prop;
 
-    ul.style.padding = '8px';
-    ul.style.border = '.5rem solid #ccc';
-    ul.style.marginBottom = '8px';
+      textUl.style.padding = '8px';
+      textUl.style.border = '.5rem solid #ccc';
+      textUl.style.marginBottom = '8px';
 
-    ul.appendChild(li);
-  });
+      textUl.appendChild(li);
+    });
+    // textUl.removeChild(textUl.firstChild);
+    //remove the first ul if there is one THEN add new ul
+  }
+  icon.addEventListener('click', handleClick);
 
-  document.getElementById('item-container').appendChild(ul);
+  // right panel attach
+  document.getElementById('text-container').appendChild(textUl);
+  // left panel attach
+  document.getElementById('item-container').appendChild(itemUl);
 }
+
 const witherhoardItem = await itemFetchAndDisplay('Witherhoard');
 const breakneckItem = await itemFetchAndDisplay('Breakneck');
 const osteoStrigaItem = await itemFetchAndDisplay('Osteo Striga');
