@@ -1,6 +1,6 @@
 const APIKEY = '3fd152d590a94ab088993fcc9292e6f9';
 const MANIFESTURL = 'https://www.bungie.net/Platform/Destiny2/Manifest/';
-const KINID = 1498876634;
+const PRIMID = 1498876634;
 const SECID = 2465295065;
 const HEVID = 953998645;
 
@@ -48,15 +48,6 @@ export default async function itemFetchAndDisplay(searchName) {
               screenshot,
               equippingBlock,
             } = collectibleItem;
-            // console.log(inventoryData);
-            // console.log(codeItem);
-            // console.log(
-            //   'Code item found!!!!!!',
-            //   displayProperties,
-            //   flavorText,
-            //   itemTypeAndTierDisplayName,
-            //   itemTypeDisplayName
-            // );
             displayItemProperties(
               displayProperties,
               flavorText,
@@ -98,9 +89,9 @@ function displayItemProperties(
   // const itemDiv = document.createElement('div');
   // itemDiv.appendChild(icon);
 
-  if (equippingBlock.equipmentSlotTypeHash === KINID) {
-    const kineticDiv = document.querySelector('#kinetic');
-    kineticDiv.appendChild(document.createElement('div')).appendChild(icon);
+  if (equippingBlock.equipmentSlotTypeHash === PRIMID) {
+    const primaryDiv = document.querySelector('#primary');
+    primaryDiv.appendChild(document.createElement('div')).appendChild(icon);
   } else if (equippingBlock.equipmentSlotTypeHash === SECID) {
     const secondaryDiv = document.querySelector('#secondary');
     secondaryDiv.appendChild(document.createElement('div')).appendChild(icon);
