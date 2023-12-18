@@ -48,6 +48,7 @@ export default async function itemFetchAndDisplay(searchName) {
               screenshot,
               equippingBlock,
             } = collectibleItem;
+
             displayItemProperties(
               displayProperties,
               flavorText,
@@ -91,13 +92,19 @@ function displayItemProperties(
 
   if (equippingBlock.equipmentSlotTypeHash === PRIMID) {
     const primaryDiv = document.querySelector('#primary');
-    primaryDiv.appendChild(document.createElement('div')).appendChild(icon);
+    const primaryImgDiv = document.createElement('div');
+    primaryDiv.appendChild(primaryImgDiv).appendChild(icon);
+    primaryImgDiv.classList.add('primary-slot');
   } else if (equippingBlock.equipmentSlotTypeHash === SECID) {
     const secondaryDiv = document.querySelector('#secondary');
-    secondaryDiv.appendChild(document.createElement('div')).appendChild(icon);
+    const secondaryImgDiv = document.createElement('div');
+    secondaryDiv.appendChild(secondaryImgDiv).appendChild(icon);
+    secondaryImgDiv.classList.add('secondary-slot');
   } else if (equippingBlock.equipmentSlotTypeHash === HEVID) {
     const heavyDiv = document.querySelector('#heavy');
-    heavyDiv.appendChild(document.createElement('div')).appendChild(icon);
+    const heavyImgDiv = document.createElement('div');
+    heavyDiv.appendChild(heavyImgDiv).appendChild(icon);
+    heavyImgDiv.classList.add('heavy-slot');
   }
   // iterate over props, if prop === h1 id, append icon to that h1
 
@@ -106,13 +113,13 @@ function displayItemProperties(
     const parent = document.getElementById('text-container');
     parent.innerHTML = '';
     const textUl = document.createElement('ul');
-
+    textUl.classList.add('img-txt');
     properties.forEach((prop) => {
       // creating text li to attach to the text ul
       const li = document.createElement('li');
       li.textContent = prop;
       textUl.style.padding = '8px';
-      textUl.style.border = '.5rem solid #ccc';
+      textUl.style.border = '.5rem';
       textUl.style.marginBottom = '8px';
 
       textUl.appendChild(li);
@@ -120,10 +127,10 @@ function displayItemProperties(
       //find prop that has an equippingblock id that matches h1 id and if so, append that itemul to the matching h1
     });
     const img = document.createElement('IMG');
-    console.log(screenshot);
     const propImg = 'https://bungie.net' + screenshot;
     img.src = propImg;
     textUl.appendChild(img);
+    img.classList.add('text-img');
 
     parent.appendChild(textUl);
   }

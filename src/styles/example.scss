@@ -1,34 +1,12 @@
 #main > h1 {
   border: 4px solid purple;
   padding: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .li {
   padding: 8px;
   border-bottom: 1px solid #ccc;
   color: red;
-}
-
-#item-container {
-  // border-radius: 10px;
-  border: #222 0.3rem solid;
-  align-items: center;
-  column-gap: 10px;
-  display: flex;
-  justify-content: center;
-  max-width: 500px;
-  overflow: hidden;
-  flex-wrap: wrap;
-}
-
-#item-container img {
-  border: #223 0.2rem solid;
-  box-shadow: 5px 5px 5px grey;
-}
-
-#item-container img:hover {
-  transition: all 0.2s ease-in-out;
-  border: rgb(192, 192, 192) 0.2rem solid;
-  box-shadow: 5 5px 15px grey;
-  transform: scale(1.1);
 }
