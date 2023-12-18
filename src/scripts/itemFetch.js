@@ -24,6 +24,10 @@ export default async function itemFetchAndDisplay(searchName) {
           const codeItem = Object.values(inventoryData).filter(
             (item) => item.displayProperties.name === searchName
           );
+
+          // code item displays the selected item and all of its possible props
+          // inventoryData displays every possible item in the manifest db
+
           if (searchName) {
             const {
               displayProperties,
@@ -31,14 +35,13 @@ export default async function itemFetchAndDisplay(searchName) {
               itemTypeAndTierDisplayName,
               itemTypeDisplayName,
             } = codeItem[0];
-            console.log(
-              'Code item found!!!!!!',
-              displayProperties,
-              flavorText,
-              itemTypeAndTierDisplayName,
-              itemTypeDisplayName
-            );
-
+            // console.log(
+            //   'Code item found!!!!!!',
+            //   displayProperties,
+            //   flavorText,
+            //   itemTypeAndTierDisplayName,
+            //   itemTypeDisplayName
+            // );
             displayItemProperties(
               displayProperties,
               flavorText,
@@ -76,6 +79,7 @@ function displayItemProperties(
   icon.src = propImg;
   itemUl.appendChild(icon);
 
+  // current bug
   // i only want to do this IF an icon is clicked on
   function handleClick() {
     properties.forEach((prop) => {

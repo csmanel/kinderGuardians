@@ -10,6 +10,7 @@
 }
 
 #item-container {
+  // border-radius: 10px;
   border: #222 0.2rem solid;
   align-items: center;
   column-gap: 10px;
@@ -21,9 +22,13 @@
 }
 
 #item-container img {
-  border: #222 0.2rem solid;
+  border: #223 0.2rem solid;
+  box-shadow: 5px 5px 5px grey;
 }
 
 #item-container img:hover {
-  border: grey 0.2rem solid;
+  transition: all 0.2s ease-in-out;
+  border: rgb(192, 192, 192) 0.2rem solid;
+  box-shadow: 5 5px 15px grey;
+  transform: scale(1.1);
 }
