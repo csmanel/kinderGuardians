@@ -1,3 +1,16 @@
+// import {
+//   apexImg,
+//   breakneckImg,
+//   cataclysmicImg,
+//   forbearanceImg,
+//   gnawingImg,
+//   osteoImg,
+//   retrofitImg,
+//   witherhoardImg,
+// } from '../../assets';
+
+// const apexImg = require('../../assets/apex.jpg');
+
 const apiKey = '3fd152d590a94ab088993fcc9292e6f9';
 const manifestUrl = 'https://www.bungie.net/Platform/Destiny2/Manifest/';
 
@@ -34,7 +47,11 @@ export default async function itemFetchAndDisplay(searchName) {
               flavorText,
               itemTypeAndTierDisplayName,
               itemTypeDisplayName,
+              hash,
+              screenshot,
             } = codeItem[0];
+            // console.log(inventoryData);
+            // console.log(codeItem);
             // console.log(
             //   'Code item found!!!!!!',
             //   displayProperties,
@@ -46,7 +63,9 @@ export default async function itemFetchAndDisplay(searchName) {
               displayProperties,
               flavorText,
               itemTypeAndTierDisplayName,
-              itemTypeDisplayName
+              itemTypeDisplayName,
+              hash,
+              screenshot
             );
           } else {
             console.log('item not found :(((((((( ');
@@ -62,43 +81,54 @@ function displayItemProperties(
   displayProperties,
   flavorText,
   itemTypeAndTierDisplayName,
-  itemTypeDisplayName
+  itemTypeDisplayName,
+  hash,
+  screenshot
 ) {
-  const itemUl = document.createElement('ul');
-  const textUl = document.createElement('ul');
-
   const properties = [
     displayProperties.name,
     itemTypeAndTierDisplayName,
     itemTypeDisplayName,
     flavorText,
+    hash,
+    screenshot,
   ];
 
+  const itemUl = document.createElement('ul');
+
+  // icon creation
   const icon = document.createElement('IMG');
   const propImg = 'https://bungie.net' + displayProperties.icon;
   icon.src = propImg;
   itemUl.appendChild(icon);
 
-  // current bug
-  // i only want to do this IF an icon is clicked on
+  // text creation
   function handleClick() {
+    const parent = document.getElementById('text-container');
+    parent.innerHTML = '';
+    const textUl = document.createElement('ul');
+
     properties.forEach((prop) => {
       const li = document.createElement('li');
       li.textContent = prop;
-
       textUl.style.padding = '8px';
       textUl.style.border = '.5rem solid #ccc';
       textUl.style.marginBottom = '8px';
 
       textUl.appendChild(li);
     });
-    // textUl.removeChild(textUl.firstChild);
-    //remove the first ul if there is one THEN add new ul
+    const img = document.createElement('IMG');
+    console.log(screenshot);
+    const propImg = 'https://bungie.net' + screenshot;
+    img.src = propImg;
+    textUl.appendChild(img);
+
+    parent.appendChild(textUl);
   }
   icon.addEventListener('click', handleClick);
 
   // right panel attach
-  document.getElementById('text-container').appendChild(textUl);
+  document.getElementById('text-container');
   // left panel attach
   document.getElementById('item-container').appendChild(itemUl);
 }
