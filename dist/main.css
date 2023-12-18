@@ -113,8 +113,11 @@ meter {
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/styles/text.scss ***!
   \*******************************************************************************************************************************************/
 #text-container {
-  border: #ff0000 0.2rem solid;
+  border: #383838 0.3rem solid;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 /*!***********************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/styles/itemPage.scss ***!
@@ -137,7 +140,7 @@ meter {
 }
 
 #item-container {
-  border: #222 0.2rem solid;
+  border: #222 0.3rem solid;
   align-items: center;
   column-gap: 10px;
   display: flex;

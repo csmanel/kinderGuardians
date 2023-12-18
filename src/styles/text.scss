@@ -1,4 +1,7 @@
 #text-container {
-  border: #ff0000 0.2rem solid;
+  border: #383838 0.3rem solid;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
