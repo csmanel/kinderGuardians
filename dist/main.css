@@ -122,7 +122,8 @@ meter {
 }
 #text-container {
   font-family: "Poppins", sans-serif;
-  font-size: 20px;
+  font-size: 22px;
+  text-shadow: rgb(67, 67, 67) 0px 0px 15px;
   color: rgb(214, 214, 214);
   border-radius: 5px;
   margin-right: 10px;
@@ -132,23 +133,29 @@ meter {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  position: relative;
 }
 
 .img-txt {
   z-index: 1;
+  position: absolute;
+  top: 66px;
+  left: 20px;
 }
 
 .text-img {
   box-shadow: -20px 100px 100px rgb(0, 0, 0), 20px -20px 100px rgba(0, 0, 0, 0);
   animation: fadeIn 1s 1 forwards;
+  z-index: 0;
 }
 /*!***********************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/styles/itemPage.scss ***!
   \***********************************************************************************************************************************************/
 #item-container {
   font-family: "Poppins", sans-serif;
-  font-size: 20px;
+  font-size: 25px;
   color: rgb(214, 214, 214);
+  text-shadow: rgb(67, 67, 67) 0px 0px 15px;
   margin-left: 10px;
   margin-right: 5px;
   border-radius: 5px;
@@ -243,8 +250,9 @@ meter {
 }
 
 #main {
+  font-family: "Poppins", sans-serif;
   color: rgb(190, 190, 190);
-  font-size: 30px;
+  font-size: 40px;
 }
 
 body {

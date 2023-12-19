@@ -9,7 +9,8 @@
 
 #text-container {
   font-family: 'Poppins', sans-serif;
-  font-size: 20px;
+  font-size: 22px;
+  text-shadow: rgb(67, 67, 67) 0px 0px 15px;
   color: rgb(214, 214, 214);
 
   border-radius: 5px;
@@ -20,17 +21,22 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  position: relative;
 }
 
 .img-txt {
   z-index: 1;
+  position: absolute;
+  top: 66px;
+  left: 20px;
+}
+
+.prop-txt {
+  // position: absolute;
 }
 
 .text-img {
-  // box-shadow: 15px 15px 15px rgb(51, 51, 74);
-  // max-inline-size: 100%;
-  // box-shadow: rgb(0, 0, 0) 10px 22px 70px 4px;
-  // position: relative;
   box-shadow: -20px 100px 100px rgb(0, 0, 0), 20px -20px 100px rgba(0, 0, 0, 0);
   animation: fadeIn 1s 1 forwards;
+  z-index: 0;
 }

@@ -125,19 +125,20 @@ function displayItemProperties(
     properties.forEach((prop) => {
       // creating text li to attach to the text ul
       const li = document.createElement('li');
+      li.classList.add('prop-txt');
       li.textContent = prop;
       textUl.style.padding = '8px';
       textUl.style.border = '.5rem';
       textUl.style.marginBottom = '8px';
       textUl.style.transition = 'all 0.3s ease-in-out';
       textUl.appendChild(li);
-
       //find prop that has an equippingblock id that matches h1 id and if so, append that itemul to the matching h1
     });
+    const textDiv = document.getElementById('text-container');
     const img = document.createElement('IMG');
     const propImg = 'https://bungie.net' + screenshot;
     img.src = propImg;
-    textUl.appendChild(img);
+    textDiv.appendChild(img);
     img.classList.add('text-img');
 
     parent.appendChild(textUl);
