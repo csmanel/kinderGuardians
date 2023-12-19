@@ -1,0 +1,72 @@
+#item-container {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  color: rgb(214, 214, 214);
+
+  margin-left: 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  // border: #222 0.3rem solid;
+  align-items: center;
+  column-gap: 10px;
+  display: flex;
+  justify-content: flex-start;
+  width: 500px;
+  height: 593.19px;
+  overflow: hidden;
+  flex-wrap: wrap;
+  // background-color: grey;
+}
+
+#item-container img {
+  border: #222 0.2rem solid;
+  box-shadow: 5px 5px 5px rgb(51, 51, 74);
+  width: 81.48px;
+  height: 81.48px;
+}
+
+#item-container img:hover {
+  transition: all 0.3s ease-in-out;
+  border: rgb(192, 192, 192) 0.2rem solid;
+  box-shadow: 0 60px 80px rgba(46, 46, 46, 0.76),
+    0 45px 26px rgba(0, 0, 0, 0.14);
+}
+
+#item-container img:active {
+  transition: all 0.3s ease-in-out;
+  border: rgb(192, 192, 192) 0.2rem solid;
+  box-shadow: 0 60px 80px rgba(46, 46, 46, 0.76),
+    0 45px 26px rgba(0, 0, 0, 0.14);
+}
+
+#item-page {
+  display: flex;
+}
+
+#primary {
+  display: flex;
+}
+
+#primary h1 {
+  order: -1;
+}
+
+.primary-slot {
+  margin: 5px 5px 5px 5px;
+}
+
+#secondary {
+  display: flex;
+}
+
+.secondary-slot {
+  margin: 5px 5px 5px 5px;
+}
+
+#heavy {
+  display: flex;
+}
+
+.heavy-slot {
+  margin: 5px 5px 5px 5px;
+}

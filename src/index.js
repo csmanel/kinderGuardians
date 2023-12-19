@@ -1,5 +1,7 @@
 import Example from './scripts/application';
 import itemFetch from './scripts/itemFetch';
+import text from './styles/text.scss';
+import itemPage from './styles/itemPage.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
   const main = document.getElementById('main');

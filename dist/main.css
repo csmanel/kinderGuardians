@@ -109,12 +109,105 @@ meter {
 ::-webkit-details-marker {
   display: none;
 }
+/*!*******************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/styles/text.scss ***!
+  \*******************************************************************************************************************************************/
+#text-container {
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-left: 5px;
+  width: 100%;
+  height: 593.19px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.img-txt {
+  z-index: 1;
+}
+
+.text-img {
+  box-shadow: -20px 100px 100px rgb(0, 0, 0), 20px -20px 100px rgba(0, 0, 0, 0);
+}
+/*!***********************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/styles/itemPage.scss ***!
+  \***********************************************************************************************************************************************/
+#item-container {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  color: rgb(214, 214, 214);
+  margin-left: 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  align-items: center;
+  column-gap: 10px;
+  display: flex;
+  justify-content: flex-start;
+  width: 500px;
+  height: 593.19px;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+#item-container img {
+  border: #222 0.2rem solid;
+  box-shadow: 5px 5px 5px rgb(51, 51, 74);
+  width: 81.48px;
+  height: 81.48px;
+}
+
+#item-container img:hover {
+  transition: all 0.3s ease-in-out;
+  border: rgb(192, 192, 192) 0.2rem solid;
+  box-shadow: 0 60px 80px rgba(46, 46, 46, 0.76), 0 45px 26px rgba(0, 0, 0, 0.14);
+}
+
+#item-container img:active {
+  transition: all 0.3s ease-in-out;
+  border: rgb(192, 192, 192) 0.2rem solid;
+  box-shadow: 0 60px 80px rgba(46, 46, 46, 0.76), 0 45px 26px rgba(0, 0, 0, 0.14);
+}
+
+#item-page {
+  display: flex;
+}
+
+#primary {
+  display: flex;
+}
+
+#primary h1 {
+  order: -1;
+}
+
+.primary-slot {
+  margin: 5px 5px 5px 5px;
+}
+
+#secondary {
+  display: flex;
+}
+
+.secondary-slot {
+  margin: 5px 5px 5px 5px;
+}
+
+#heavy {
+  display: flex;
+}
+
+.heavy-slot {
+  margin: 5px 5px 5px 5px;
+}
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
 #main > h1 {
-  border: 4px solid purple;
-  padding: 20px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding-top: 40px;
+  display: flex;
+  justify-content: center;
 }
 
 .li {
@@ -123,16 +216,11 @@ meter {
   color: red;
 }
 
-#item-container {
-  border: #222 0.2rem solid;
-  align-items: center;
-  column-gap: 10px;
-  display: flex;
-  max-width: 500px;
-  overflow: hidden;
-  flex-wrap: wrap;
+#main {
+  color: rgb(190, 190, 190);
+  font-size: 30px;
 }
 
-#main {
-  color: purple;
+body {
+  background-image: linear-gradient(to bottom right, #b4b4b4, #1b1a1a);
 }
