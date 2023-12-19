@@ -1,11 +1,20 @@
 @import './styles/example.scss';
 
+@font-face {
+  font-family: Futura;
+  // src: url(/fonts/Futura/FuturaRegular/FuturaRegular.ttf);
+  // src: url(/fonts//Futura/FuturaBold/FuturaBold.otf);
+  src: url(/fonts/Futura/FuturaHeavy/FuturaHeavy.otf);
+}
+
 #main {
-  font-family: 'Poppins', sans-serif;
+  font-family: Futura, sans-serif;
   color: rgb(190, 190, 190);
+  text-shadow: rgb(67, 67, 67) 0px 0px 15px;
   font-size: 40px;
 }
 
 body {
+  overflow: hidden;
   background-image: linear-gradient(to bottom right, #aa9db3, #1b1a1a);
 }

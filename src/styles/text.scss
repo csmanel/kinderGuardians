@@ -8,11 +8,6 @@
 }
 
 #text-container {
-  font-family: 'Poppins', sans-serif;
-  font-size: 22px;
-  text-shadow: rgb(67, 67, 67) 0px 0px 15px;
-  color: rgb(214, 214, 214);
-
   border-radius: 5px;
   margin-right: 10px;
   margin-left: 5px;
@@ -25,14 +20,24 @@
 }
 
 .img-txt {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  text-shadow: rgb(67, 67, 67) 0px 0px 15px;
+  color: rgb(214, 214, 214);
   z-index: 1;
   position: absolute;
   top: 66px;
   left: 20px;
 }
+.prop-txt:first-child {
+  font-weight: bold;
+  // font-size: 26;
+}
 
-.prop-txt {
-  // position: absolute;
+.prop-txt:last-child {
+  font-style: italic;
+  font-weight: lighter;
+  // font-size: 18;
 }
 
 .text-img {
