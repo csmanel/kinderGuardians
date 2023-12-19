@@ -7,7 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const main = document.getElementById('main');
   new Example(main);
 
-  console.log('hello world');
-  // this is where things will actually start
-  // console.log(weaponFetch('Witherhoard'));
+  // const modalOpen = document.getElementById('modal-open');
+  // modalOpen.addEventListener('click', function () {
+  //   console.log('opening');
+  //   modal.style.display = 'flex';
+  // });
+  const modalClose = document.getElementById('modal-close');
+  const modal = document.getElementById('modal-container');
+  modalClose.addEventListener('click', function () {
+    modal.style.display = 'none';
+  });
 });

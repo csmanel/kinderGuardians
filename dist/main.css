@@ -250,6 +250,10 @@ meter {
   padding-top: 40px;
   display: flex;
   justify-content: center;
+  font-family: Futura, sans-serif;
+  color: rgb(190, 190, 190);
+  text-shadow: rgb(67, 67, 67) 0px 0px 15px;
+  font-size: 40px;
 }
 
 .li {
@@ -262,14 +266,9 @@ meter {
   font-family: Futura;
   src: url(/fonts/Futura/FuturaHeavy/FuturaHeavy.otf);
 }
-#main {
-  font-family: Futura, sans-serif;
-  color: rgb(190, 190, 190);
-  text-shadow: rgb(67, 67, 67) 0px 0px 15px;
-  font-size: 40px;
-}
-
 body {
   overflow: hidden;
   background-image: linear-gradient(to bottom right, #aa9db3, #1b1a1a);
+  height: 100vh;
+  width: 100vw;
 }
