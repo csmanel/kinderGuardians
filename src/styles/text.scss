@@ -1,4 +1,17 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 #text-container {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  color: rgb(214, 214, 214);
+
   border-radius: 5px;
   margin-right: 10px;
   margin-left: 5px;
@@ -8,14 +21,16 @@
   justify-content: center;
   flex-direction: column;
 }
+
 .img-txt {
   z-index: 1;
 }
+
 .text-img {
   // box-shadow: 15px 15px 15px rgb(51, 51, 74);
   // max-inline-size: 100%;
   // box-shadow: rgb(0, 0, 0) 10px 22px 70px 4px;
   // position: relative;
   box-shadow: -20px 100px 100px rgb(0, 0, 0), 20px -20px 100px rgba(0, 0, 0, 0);
+  animation: fadeIn 1s 1 forwards;
 }
-// for text image box-shadow: 15px 15px 15px rgb(51, 51, 74);

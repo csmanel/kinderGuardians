@@ -112,7 +112,18 @@ meter {
 /*!*******************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/styles/text.scss ***!
   \*******************************************************************************************************************************************/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 #text-container {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  color: rgb(214, 214, 214);
   border-radius: 5px;
   margin-right: 10px;
   margin-left: 5px;
@@ -129,6 +140,7 @@ meter {
 
 .text-img {
   box-shadow: -20px 100px 100px rgb(0, 0, 0), 20px -20px 100px rgba(0, 0, 0, 0);
+  animation: fadeIn 1s 1 forwards;
 }
 /*!***********************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/styles/itemPage.scss ***!
@@ -175,10 +187,12 @@ meter {
 
 #primary {
   display: flex;
+  flex-direction: column;
 }
 
-#primary h1 {
-  order: -1;
+#primslot-container {
+  display: flex;
+  flex-direction: row;
 }
 
 .primary-slot {
@@ -187,6 +201,12 @@ meter {
 
 #secondary {
   display: flex;
+  flex-direction: column;
+}
+
+#secslot-container {
+  display: flex;
+  flex-direction: row;
 }
 
 .secondary-slot {
@@ -195,6 +215,12 @@ meter {
 
 #heavy {
   display: flex;
+  flex-direction: column;
+}
+
+#hevslot-container {
+  display: flex;
+  flex-direction: row;
 }
 
 .heavy-slot {
@@ -222,5 +248,5 @@ meter {
 }
 
 body {
-  background-image: linear-gradient(to bottom right, #b4b4b4, #1b1a1a);
+  background-image: linear-gradient(to bottom right, #aa9db3, #1b1a1a);
 }

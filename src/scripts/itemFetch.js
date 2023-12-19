@@ -84,26 +84,34 @@ function displayItemProperties(
     flavorText,
   ];
   // icon creation
+  // creating an img element
   const icon = document.createElement('IMG');
   const propImg = 'https://bungie.net' + displayProperties.icon;
   icon.src = propImg;
-  // const itemDiv = document.createElement('div');
-  // itemDiv.appendChild(icon);
 
   if (equippingBlock.equipmentSlotTypeHash === PRIMID) {
     const primaryDiv = document.querySelector('#primary');
+    const primSlotDiv = document.querySelector('#primslot-container');
     const primaryImgDiv = document.createElement('div');
-    primaryDiv.appendChild(primaryImgDiv).appendChild(icon);
+    primaryDiv
+      .appendChild(primSlotDiv)
+      .appendChild(primaryImgDiv)
+      .appendChild(icon);
     primaryImgDiv.classList.add('primary-slot');
   } else if (equippingBlock.equipmentSlotTypeHash === SECID) {
     const secondaryDiv = document.querySelector('#secondary');
+    const secSlotDiv = document.querySelector('#secslot-container');
     const secondaryImgDiv = document.createElement('div');
-    secondaryDiv.appendChild(secondaryImgDiv).appendChild(icon);
+    secondaryDiv
+      .appendChild(secSlotDiv)
+      .appendChild(secondaryImgDiv)
+      .appendChild(icon);
     secondaryImgDiv.classList.add('secondary-slot');
   } else if (equippingBlock.equipmentSlotTypeHash === HEVID) {
     const heavyDiv = document.querySelector('#heavy');
+    const hevSlotDiv = document.querySelector('#hevslot-container');
     const heavyImgDiv = document.createElement('div');
-    heavyDiv.appendChild(heavyImgDiv).appendChild(icon);
+    heavyDiv.appendChild(hevSlotDiv).appendChild(heavyImgDiv).appendChild(icon);
     heavyImgDiv.classList.add('heavy-slot');
   }
   // iterate over props, if prop === h1 id, append icon to that h1
@@ -121,7 +129,7 @@ function displayItemProperties(
       textUl.style.padding = '8px';
       textUl.style.border = '.5rem';
       textUl.style.marginBottom = '8px';
-
+      textUl.style.transition = 'all 0.3s ease-in-out';
       textUl.appendChild(li);
 
       //find prop that has an equippingblock id that matches h1 id and if so, append that itemul to the matching h1
