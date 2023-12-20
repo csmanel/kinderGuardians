@@ -1,67 +1,3 @@
-// @keyframes pulsate {
-//   0% {
-//     box-shadow: 0 0 50px -5px rgba(255, 255, 255, 0.5);
-//   }
-//   100% {
-//     box-shadow: 0 0 50px 0px rgba(255, 255, 255, 1);
-//   }
-// }
-
-// .modal-container {
-//   margin: 0;
-//   overflow: hidden;
-//   background: #111;
-//   height: 100vh;
-//   width: 100vw;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// }
-
-// .scene {
-//   perspective: 800px;
-//   perspective-origin: 50% 100%;
-//   width: 100%;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   transform-style: flat;
-// }
-
-// .modal-text-container {
-//   display: none;
-// }
-
-// .scene:hover .modal-text-container {
-//   height: 80px;
-//   width: 80px;
-//   border: red solid 1px;
-//   display: flex;
-// }
-
-// .traveler-container {
-//   width: 200px;
-//   height: 200px;
-//   transform-style: preserve-3d;
-// }
-
-// .traveler {
-//   z-index: 1;
-//   width: 100%;
-//   height: 100%;
-//   background: radial-gradient(circle at 50% 10%, #fff, transparent);
-//   border-radius: 50%;
-//   box-shadow: 0 0 100px -5px rgba(255, 255, 255, 0.8);
-//   transition: all 0.1s ease-in-out;
-//   animation: pulsate 2.5s infinite alternate; /* Added animation */
-// }
-
-// .traveler:hover {
-//   box-shadow: 0 0 70px 0px rgba(255, 255, 255, 1);
-//   transform: scale(1.075);
-//   animation: none; /* Disable pulsating animation on hover */
-// }
-
 @keyframes pulsate {
   0% {
     box-shadow: 0 0 50px -5px rgba(31, 30, 30, 0.568);
@@ -114,18 +50,19 @@
 
 .modal-text-container {
   font-family: Futura;
-  font-size: 17px;
+  font-size: 20px;
   color: rgba(223, 222, 222, 0.822);
   text-shadow: rgb(87, 87, 87) 0px 0px 15px;
   text-align: center;
   display: none;
   position: absolute;
-  top: -154px;
-  right: 150px;
+  top: -184px;
+  right: 170px;
   height: fit-content;
-  width: 219px;
+  width: 300px;
   flex-direction: column;
   align-items: flex-start;
+  transition: all 0.3s ease-in-out;
 }
 
 .scene:hover .modal-text-container {
