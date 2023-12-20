@@ -7,11 +7,6 @@
   src: url('../fonts/Futura/FuturaHeavy/FuturaHeavy.otf');
 }
 
-#main {
-  // height: 100%;
-  // width: 100%;
-}
-
 body {
   overflow: hidden;
   background-image: linear-gradient(to bottom right, #aa9db3, #1b1a1a);
@@ -20,11 +15,14 @@ body {
 }
 
 .fa-icon-container {
-  display: flex;
+  position: fixed;
   bottom: 0;
+  left: 0;
+  margin: 10px;
+  display: flex;
 }
 
-.fa-brands {
-  color: red;
+.fa-brands:hover {
+  color: #b43e3e;
   cursor: pointer;
 }
