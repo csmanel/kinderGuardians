@@ -3,8 +3,6 @@
 this app is built as a helper for the game Destiny 2.
 for those with no background, the game fuctions on multiple types of content that all require different gear or items. Often what is recommended is obscured by the sheer volume of things going on in the game. Kinder guardian displays selected items that are recommended for new players to get.
 
-users will be able to select the item they are interested in which will cause a larger graphic of the item to display along with some basic information.
-
 ## Functionality
 
 ![welcome](./assets/welcomePage.png)
