@@ -15,17 +15,6 @@
     box-shadow: 0 0 100px 0px rgb(170, 170, 170);
   }
 }
-.title-text {
-  display: flex;
-  justify-content: center;
-}
-.title-text > h1 {
-  font-family: Futura;
-  font-size: 65px;
-  color: rgba(223, 222, 222, 0.822);
-  text-shadow: rgb(87, 87, 87) 0px 0px 15px;
-  letter-spacing: 10px;
-}
 
 .modal-container {
   overflow: hidden;
@@ -36,6 +25,24 @@
   align-items: center;
   justify-content: center;
   position: relative;
+}
+
+.modal-title-conainer {
+  position: absolute;
+  top: 10px;
+  z-index: 2; /* Ensure it's above the traveler */
+}
+
+.title-text {
+  display: flex;
+  justify-content: center;
+}
+.title-text > h1 {
+  font-family: Futura;
+  font-size: 85px;
+  color: rgba(223, 222, 222, 0.822);
+  text-shadow: rgb(87, 87, 87) 0px 0px 15px;
+  letter-spacing: 10px;
 }
 
 .scene {

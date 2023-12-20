@@ -114,7 +114,6 @@ function displayItemProperties(
     heavyDiv.appendChild(hevSlotDiv).appendChild(heavyImgDiv).appendChild(icon);
     heavyImgDiv.classList.add('heavy-slot');
   }
-  // iterate over props, if prop === h1 id, append icon to that h1
 
   // text creation
   function handleClick() {
