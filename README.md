@@ -1,25 +1,75 @@
 # [kinderGuardians](https://csmanel.github.io/kinderGuardians/)
 
 this app is built as a helper for the game Destiny 2.
-for those with no background, the game fuctions on multiple types of content that all require different gear or items. Often what is recommended is obscured by the sheer volume of things going on in the game, this guide hopes to simplify that.
+for those with no background, the game fuctions on multiple types of content that all require different gear or items. Often what is recommended is obscured by the sheer volume of things going on in the game. Kinder guardian displays selected items that are recommended for new players to get.
 
-users will be able to select the type of content they are intersted in, which will direct them to items that are being used for that content given the current season.
-
-items will have brief descriptions as well as methods for obtaining the item.
+users will be able to select the item they are interested in which will cause a larger graphic of the item to display along with some basic information.
 
 ## Functionality
 
-- Allow users to select content they want to filter by
-  - possibly only list one type of content to begin with
-- Display list of items/gear recommended for selected content
-- Highlight whatever item/information user is interested and store that information locally so they can come back to it
-- Have hoverability for each item/quest so user can see a preview of information before actually clicking
+![welcome](./assets/welcomePage.png)
 
-### Additional Inclusions
+- Display interactive Traveler object
+  - Object will give a small introduction when hovered over
 
-- A production README
-- Maybe a file providing for some context that seems like too much to display in the actual app?
-  - along similar lines, perhaps a tutorial of some sort providing a way a user could traverse through the app given that they truly have no idea what they are looking for (a starting guide ex: if brand new you should start with strikes as your content, and begin with obtaining x items...)
+![items](./assets/witherhoardScreenshot.png)
+
+```js
+export default async function itemFetchAndDisplay(searchName) {
+  fetch(MANIFESTURL, {
+    headers: {
+      'X-API-Key': APIKEY,
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const manifest = data.Response;
+      const inventoryUrl =
+        manifest.jsonWorldComponentContentPaths.en
+          .DestinyInventoryItemDefinition;
+
+      fetch('https://www.bungie.net' + inventoryUrl, {
+        headers: {
+          'Accept-Encoding': 'gzip',
+        },
+      })
+        .then((response) => response.json())
+        .then((inventoryData) => {
+          const codeItem = Object.values(inventoryData).filter(
+            (item) => item.displayProperties.name === searchName
+          );
+          if (searchName) {
+            let collectibleItem;
+            codeItem.forEach((el) => {
+              if ('collectibleHash' in el) {
+                collectibleItem = el;
+              }
+            });
+```
+
+- This function does most of the heavy lifting, allowing information to be abstracted from the manifest within Bungie's api. From here we can search for particular items and later on take content out from those items to display them.
+
+![highlight](./assets/activeHunger.png)
+
+```js
+const {
+  displayProperties,
+  flavorText,
+  itemTypeAndTierDisplayName,
+  itemTypeDisplayName,
+  hash,
+  screenshot,
+  equippingBlock,
+} = collectibleItem;
+```
+
+- From the abstracted manifest information we can deconstruct chosen information about each item.
+
+### Future Inclusions
+
+- Detailed graphs displaying more stats per item
+- Ability to search for specific items rather than the list being chosen for the user
+- Toggle switch so a user can either be displayed a generated list of items if they are new, or give them the ability to search
 
 ## Wireframes
 

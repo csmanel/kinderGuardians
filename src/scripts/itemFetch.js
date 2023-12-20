@@ -27,12 +27,7 @@ export default async function itemFetchAndDisplay(searchName) {
           const codeItem = Object.values(inventoryData).filter(
             (item) => item.displayProperties.name === searchName
           );
-
-          // code item displays the selected item and all of its possible props
-          // inventoryData displays every possible item in the manifest db
-
           if (searchName) {
-            // checking for which version of the object has the collectible hash
             let collectibleItem;
             codeItem.forEach((el) => {
               if ('collectibleHash' in el) {
